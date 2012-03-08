@@ -4,8 +4,8 @@ require File.expand_path('../lib/acts_as_presentable/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Mathew Spolin"]
   gem.email         = ["matt@automatt.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = "Enforces presenter pattern for Rails projects"
+  gem.summary       = "as_json will look for ClassNamePresenter or :class_name_presenter in options"
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
