@@ -13,13 +13,13 @@ module ActsPresentably
       self.class.name + 'Presenter'
     end
     def presenter_key
-      self.class.name.underscore.downcase + '_presenter'.to_sym
+      (self.class.name.underscore.downcase + '_presenter').to_sym
     end
     def as_json(options={})
       if options && options.has_key?(presenter_key)
         options[presenter_key].new(self).as_json(options)
       else
-        presenter_class.new(self).as_json(options)
+        Kernel.const_get(presenter_class).new(self).as_json(options)
       end
     end
   end
