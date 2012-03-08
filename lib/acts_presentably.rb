@@ -2,7 +2,7 @@ require 'active_record'
 require 'acts_presentably/version'
 
 module ActsPresentably
-  def acts_as_presentable
+  def acts_presentably
     include InstanceMethods
   end
   module InstanceMethods
