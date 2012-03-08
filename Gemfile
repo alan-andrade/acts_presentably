@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in acts_as_presentable.gemspec
+# Specify your gem's dependencies in acts_presentably.gemspec
 gemspec

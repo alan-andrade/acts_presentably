@@ -1,0 +1,1 @@
+Post.create(:title => 'Hello World', :text => 'First post!')
