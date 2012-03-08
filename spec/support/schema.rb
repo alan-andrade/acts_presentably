@@ -6,4 +6,9 @@ ActiveRecord::Schema.define do
     t.string :text
     t.timestamps
   end
+
+  create_table :authors, :force => true do |t|
+    t.string :name
+    t.timestamps
+  end
 end

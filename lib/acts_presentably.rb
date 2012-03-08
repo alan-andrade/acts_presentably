@@ -19,7 +19,9 @@ module ActsPresentably
       if options && options.has_key?(presenter_key)
         options[presenter_key].new(self).as_json(options)
       else
-        Kernel.const_get(presenter_class).new(self).as_json(options)
+        klass = Module.const_get(presenter_class)
+        return klass.new(self).as_json(options) if klass.is_a?(Class)
+        super
       end
     end
   end
