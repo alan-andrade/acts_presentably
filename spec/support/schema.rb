@@ -4,6 +4,7 @@ ActiveRecord::Schema.define do
   create_table :posts, :force => true do |t|
     t.string :title
     t.string :text
+    t.integer :author_id
     t.timestamps
   end
 
