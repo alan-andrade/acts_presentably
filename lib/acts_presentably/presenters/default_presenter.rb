@@ -47,7 +47,7 @@ module ActsPresentably
 
       def include_root
         unless defined?(@include_root)
-          @include_root = @options[:include_root] || @object.respond_to?(:include_root_in_json) && @object.include_root_in_json
+          @include_root = @object.respond_to?(:include_root_in_json) && @object.include_root_in_json
         end
         @include_root
       end
