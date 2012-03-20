@@ -1,5 +1,6 @@
 require 'active_record'
 require 'acts_presentably/version'
+require 'acts_presentably/presenters/default_presenter'
 
 module ActsPresentably
   def acts_presentably

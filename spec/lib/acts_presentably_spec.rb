@@ -23,7 +23,8 @@ describe "acts_presentably" do
         @post.as_json[:text].should == @post.text
       end
       it "uses the presenter passed in options" do
-        @post.as_json(:post_presenter => PostAlternativePresenter)[:name].should == @post.title
+        @post.as_json(:post_presenter => PostAlternativePresenter)[:text].should == nil
+        @post.as_json(:post_presenter => PostAlternativePresenter)[:title].should == @post.title
       end
       it "gives default behavior when no presenter class exists" do
         @author.as_json.should == "null"

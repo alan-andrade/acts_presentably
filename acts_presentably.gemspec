@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency  "bundler", ">= 1.0.21"
   gem.add_development_dependency  "rspec", ">= 2.6"
   gem.add_development_dependency  "sqlite3", ">= 1.3.4"
-  gem.add_dependency "activerecord", "~>3.1"
+  gem.add_dependency "activerecord", "~>3.0"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
