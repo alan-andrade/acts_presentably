@@ -29,6 +29,7 @@ You for a more custom as\_json hash you can define a new ```def include_related_
 
 
 You can even specify a different presentation name for your attribute:
+
     class PostAlternativePresenter < Presentably::Presenters::DefaultPresenter
       fields {:key => :title, :display_as => :name}, :text
       associations :author
@@ -36,6 +37,7 @@ You can even specify a different presentation name for your attribute:
 
 
 Now in your ActiveRecord model add the acts\_presentably line.
+
     class Post
       acts_presentably
     end
