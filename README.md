@@ -18,18 +18,20 @@ Or install it yourself as:
 
 ## Usage
 To create a presenter for your User class, first create a presenter in app/presenters.
-You'll want to override ```fields``` and, optionally, ```include_related_in```
+The easiest way to setup your presenter is to define its "fields" and any "associations".
+You for a more custom as\_json hash you can define a new ```def include_related_in(hash)```, or for maximum flexibility simply override ```as_json```. 
+@object is the object you're creating the json for, and is available in all methods.
 
     class PostPresenter < Presentably::Presenters::DefaultPresenter
       fields :title, :text
-      association :author
+      associations :author
     end
 
 
 You can even specify a different presentation name for your attribute:
     class PostAlternativePresenter < Presentably::Presenters::DefaultPresenter
       fields {:key => :title, :display_as => :name}, :text
-      association :author
+      associations :author
     end
 
 
