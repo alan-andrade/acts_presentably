@@ -24,16 +24,16 @@ describe "Presentably::Presenters::DefaultPresenter" do
       @post = @author.posts.build(:title => 'Hello', :text => 'First post!')
     end
     it "should use the fields specified in 'fields'" do
-      JSON.parse(@post.to_json(:post_presenter => SimplePostPresenter )).should == {"title" => 'Hello'}
+      JSON.parse(@post.to_json(:post_presenter => SimplePostPresenter )).should == {"post" => {"title" => 'Hello'}}
     end
     context "author presenter" do
       it "should render the post associations" do
-        JSON.parse(@author.to_json(:author_presenter => AuthorPresenter)).should == {"name"=>"Joe"}
+        JSON.parse(@author.to_json(:author_presenter => AuthorPresenter)).should == {"author" => {"name"=>"Joe"}}
       end
     end
     context "author with posts presenter" do
       it "should render the post associations" do
-        JSON.parse(@author.to_json(:author_presenter => AuthorWithPostsPresenter, :post_presenter => SimplePostPresenter)).should == {"name"=>"Joe", "posts"=>[{"title"=>"Hello"}]}
+        JSON.parse(@author.to_json(:author_presenter => AuthorWithPostsPresenter, :post_presenter => SimplePostPresenter)).should == {"author" => {"name"=>"Joe", "posts"=>[{"post" => {"title"=>"Hello"}}]}}
       end
     end
   end

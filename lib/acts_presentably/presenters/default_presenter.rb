@@ -42,7 +42,26 @@ module ActsPresentably
 
       def as_json(options={})
         @options = options
-        include_related_in build_hash
+        add_root(include_related_in build_hash)
+      end
+
+      def include_root
+        unless defined?(@include_root)
+          @include_root = @options[:include_root] || @object.respond_to?(:include_root_in_json) && @object.include_root_in_json
+        end
+        @include_root
+      end
+
+      def add_root(hash)
+         if include_root
+           custom_root = @options && @options[:root]
+           hash = { custom_root || @object.class.model_name.element => hash }
+         end
+         hash
+      end
+
+      def object_name
+        @object.class.name
       end
 
       def build_hash
