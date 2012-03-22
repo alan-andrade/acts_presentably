@@ -1,12 +1,15 @@
-# ActsAsPresentable
+# ActsPresentably
 
-TODO: Write a gem description
+ActsPresentably is a gem that makes it easy to emit different JSON representations for your models.
+Say you're building an API and you need different JSON structures of the same model for different API calls.
+The presenter pattern can really help you here.  Presenters are the equivalent of views, but for your JSON representations.
+So, you can keep your models separate from the different ways you want to emit them.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'acts_as_presentable'
+    gem 'acts_presentably'
 
 And then execute:
 
@@ -14,13 +17,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install acts_as_presentable
+    $ gem install acts_presentably
 
 ## Usage
 To create a presenter for your User class, first create a presenter in app/presenters.
 The easiest way to setup your presenter is to define its "fields" and any "associations".
 
-    class PostPresenter < Presentably::Presenters::DefaultPresenter
+    class PostPresenter < ActsPresentably::Presenters::DefaultPresenter
       fields :title, :text
       associations :author
     end
@@ -31,7 +34,7 @@ For maximum flexibility simply override ```as_json```.
 
 You can even specify a different presentation name for your attribute:
 
-    class AltnerativePostPresenter < Presentably::Presenters::DefaultPresenter
+    class AlternativePostPresenter < ActsPresentably::Presenters::DefaultPresenter
       def as_json(options = {})
         {
           :name => @object.title
