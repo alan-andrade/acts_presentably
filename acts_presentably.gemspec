@@ -5,8 +5,8 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Mathew Spolin"]
   gem.email         = ["matt@automatt.com"]
   gem.description   = "Presenter pattern for Rails models"
-  gem.summary       = "as_json will look for ClassNamePresenter or :class_name_presenter in options"
-  gem.homepage      = ""
+  gem.summary       = "Easily implement presenters for your rails models"
+  gem.homepage      = "https://github.com/wellnessfx/acts_presentably"
   
   gem.add_development_dependency  "bundler", ">= 1.0.21"
   gem.add_development_dependency  "rspec", ">= 2.6"
