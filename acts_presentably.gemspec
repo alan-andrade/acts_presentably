@@ -4,7 +4,7 @@ require File.expand_path('../lib/acts_presentably/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Mathew Spolin"]
   gem.email         = ["matt@automatt.com"]
-  gem.description   = "Enforces presenter pattern for Rails projects"
+  gem.description   = "Presenter pattern for Rails models"
   gem.summary       = "as_json will look for ClassNamePresenter or :class_name_presenter in options"
   gem.homepage      = ""
   
