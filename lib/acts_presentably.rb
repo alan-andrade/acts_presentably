@@ -18,7 +18,13 @@ module ActsPresentably
     end
     def as_json(options={})
       if options && options.has_key?(presenter_key)
-        options[presenter_key].new(self).as_json(options)
+        if options[presenter_key].nil?
+          options = options.clone
+          options.delete(presenter_key)
+          super(options)
+        else
+          options[presenter_key].new(self).as_json(options)
+        end
       else
         klass = Module.const_get(presenter_class)
         return klass.new(self).as_json(options) if klass.is_a?(Class)
